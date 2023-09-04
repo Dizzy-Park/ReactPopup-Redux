@@ -1,27 +1,36 @@
 {
   "name": "reactpopup-redux",
-  "version": "0.1.1",
+  "version": "0.0.1",
+  "main": "/dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "license": "MIT",
+  "files": ["dist/"],
   "scripts": {
-    "build": "tsc"
+    "dev": "vite",
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc -p tsconfig-esm.json && tsc -p tsconfig-cjs.json",
+    "publish:up": "npm run build && npm publish",
+    "un": "npm run unpublish reactpopup-redux"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@types/node": "^20.5.7",
-    "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7",
-    "@types/react-redux": "^7.1.26",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.2",
     "styled-components": "^6.0.7",
-    "styled-reset": "^4.5.1",
-    "typescript": "^5.2.2"
+    "styled-reset": "^4.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@types/react-redux": "^7.1.26",
     "@types/redux-logger": "^3.0.9",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
+    "@vitejs/plugin-react": "^4.0.4",
     "babel-plugin-styled-components": "^2.1.4",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "env-cmd": "^10.1.0",
@@ -32,7 +41,12 @@
     "nth-check": "^2.1.1",
     "prettier": "^3.0.2",
     "react-scripts": "5.0.1",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "rimraf": "^5.0.1",
+    "vite": "^4.4.9",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "typescript": "^5.2.2"
   },
   "overrides": {
     "typescript": "^5.2.2",
